@@ -31,12 +31,11 @@ def main():
                 else:
                     bot.send_message(text=f'''У вас проверили работу '{review_information['new_attempts'][0]['lesson_title']}'.\
                                               Преподавателю все понравилось, можно приступать к следующему уроку!''', chat_id=chat_id)
-        except requests.exceptions.ReadTimeout:
+        except requests.exceptions.Timeout:
             print('Время ожидания вышло')
         except requests.exceptions.ConnectionError:
             print('Ошибка сети')
             time.sleep(5)
-            continue
 
 
 if __name__ == '__main__':
