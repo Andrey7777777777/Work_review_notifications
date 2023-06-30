@@ -22,8 +22,6 @@ def main():
             response = requests.get(url, headers=headers, params=params)
             response.raise_for_status()
             review_information = response.json()
-            print(response.text)
-            print(review_information['status'])
             if review_information['status'] == 'found':
                 params['timestamp'] = review_information['last_attempt_timestamp']
                 if review_information['new_attempts'][0]['is_negative']:
@@ -34,7 +32,7 @@ def main():
                     bot.send_message(text=f"У вас проверили работу {review_information['new_attempts'][0]['lesson_title']}. "f""
                                           f"Преподавателю все понравилось, можно приступать к следующему уроку!", chat_id=chat_id)
         except requests.exceptions.ReadTimeout:
-            print('Ошибка')
+            print('Время ожидания вышло')
         except requests.exceptions.ConnectionError:
             print('Ошибка сети')
             time.sleep(5)
