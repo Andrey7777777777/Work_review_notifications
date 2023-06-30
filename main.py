@@ -10,7 +10,7 @@ def main():
     env.read_env()
     telegram_token = env.str('TELEGRAM_TOKEN')
     api_key = env.str('DEVMAN_API_KEY')
-    chat_id = env.int('CHAT_ID')
+    chat_id = env.int('TG_CHAT_ID')
     parser = argparse.ArgumentParser()
     parser.add_argument('--id', help='Укажите ваш id', type=int, default=chat_id)
     bot = telegram.Bot(token=telegram_token)

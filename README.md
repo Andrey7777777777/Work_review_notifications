@@ -10,7 +10,7 @@ pip install -r requirements.txt
 Переменные окружения:
 - TELEGRAM_TOKEN - токен телеграм бота, инструкция по созданию бота: https://medium.com/spidernitt/how-to-create-your-own-telegram-bot-63d1097999b6
 - DEVMAN_API_KEY - токен сайта dvmn.org: https://dvmn.org/api/docs/
-- CHAT_ID - Ваш id в телеграмме, для получения id напишите боту по ссылке: https://telegram.me/userinfobot
+- TG_CHAT_ID - Ваш id в телеграмме, для получения id напишите боту по ссылке: https://telegram.me/userinfobot
 Запуск бота с id указанным в переменной окружения:
 ```sh
 python main.py
