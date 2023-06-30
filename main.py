@@ -25,12 +25,12 @@ def main():
             if review_information['status'] == 'found':
                 params['timestamp'] = review_information['last_attempt_timestamp']
                 if review_information['new_attempts'][0]['is_negative']:
-                    bot.send_message(text=f"У вас проверили работу {review_information['new_attempts'][0]['lesson_title']}. "
-                                          f"К сожалению в работе нашлись ошибки. Ссылка на работу"
-                                          f"{review_information['new_attempts'][0]['lesson_url']}", chat_id=chat_id)
+                    bot.send_message(text=f'''У вас проверили работу '{review_information['new_attempts'][0]['lesson_title']}'.\
+                                              К сожалению в работе нашлись ошибки. Ссылка на работу\
+                                              {review_information['new_attempts'][0]['lesson_url']}''', chat_id=chat_id)
                 else:
-                    bot.send_message(text=f"У вас проверили работу {review_information['new_attempts'][0]['lesson_title']}. "f""
-                                          f"Преподавателю все понравилось, можно приступать к следующему уроку!", chat_id=chat_id)
+                    bot.send_message(text=f'''У вас проверили работу '{review_information['new_attempts'][0]['lesson_title']}'.\
+                                              Преподавателю все понравилось, можно приступать к следующему уроку!''', chat_id=chat_id)
         except requests.exceptions.ReadTimeout:
             print('Время ожидания вышло')
         except requests.exceptions.ConnectionError:
