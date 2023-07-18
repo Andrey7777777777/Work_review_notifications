@@ -3,9 +3,16 @@ import requests
 import time
 from environs import Env
 import telegram
+import logging
 
 
 def main():
+    logging.basicConfig('Сообщение для дебагинга')
+    logging.info('Произошло какое-то событие. Всё идёт по плану.')
+    logging.warning('Предупреждение, что-то могло сломаться')
+    logging.error('Ошибка, что-то сломалось')
+    logging.critical('МЫ В ОГНЕ ЧТО ДЕЛАТЬ?!?!')
+
     env = Env()
     env.read_env()
     telegram_token = env.str('TELEGRAM_TOKEN')
