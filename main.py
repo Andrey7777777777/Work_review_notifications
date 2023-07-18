@@ -4,7 +4,6 @@ import time
 from environs import Env
 import telegram
 import logging
-from logging.handlers import RotatingFileHandler
 
 
 logger = logging.getLogger('Бот логер')
@@ -23,8 +22,8 @@ class TelegramLogsHandler(logging.Handler):
 
 
 def main():
-    logging.basicConfig(format='%(asctime)s %(levelname)s %(name)s: %(message)s',
-                        filename='/opt/Work_review_notifications/bot.log')
+    logging.basicConfig(format='%(asctime)s %(levelname)s %(name)s: %(message)s')
+                        #filename='/opt/Work_review_notifications/bot.log')
     logger.setLevel(logging.DEBUG)
     env = Env()
     env.read_env()
@@ -41,6 +40,7 @@ def main():
     logger.info('Бот запущен')
     while True:
         try:
+            x = 10 / 0
             response = requests.get(url, headers=headers, params=params)
             response.raise_for_status()
             review_information = response.json()
@@ -59,7 +59,7 @@ def main():
             logger.error('Ошибка сети')
             time.sleep(5)
         except Exception as error:
-            logger.exception(f"Бот упал с ошибкой: {error}")
+            logger.exception(f'Бот упал с ошибкой: {error}')
 
 
 if __name__ == '__main__':
