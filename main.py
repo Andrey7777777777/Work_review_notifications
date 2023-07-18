@@ -7,11 +7,14 @@ import logging
 
 
 def main():
-    logging.basicConfig('Сообщение для дебагинга')
-    logging.info('Произошло какое-то событие. Всё идёт по плану.')
-    logging.warning('Предупреждение, что-то могло сломаться')
-    logging.error('Ошибка, что-то сломалось')
-    logging.critical('МЫ В ОГНЕ ЧТО ДЕЛАТЬ?!?!')
+    logging.basicConfig(level=logging.DEBUG,
+                        format="%(process)d %(levelname)s %(message)s",
+                        filename='/opt/Work_review_notifications/bot.log')
+    logging.getLogger(__name__)
+    logging.info('INFO')
+    logging.warning('WARNING')
+    logging.error('ERROR')
+    logging.critical('CRITICAL')
 
     env = Env()
     env.read_env()
