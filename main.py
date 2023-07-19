@@ -22,8 +22,8 @@ class TelegramLogsHandler(logging.Handler):
 
 
 def main():
-    logging.basicConfig(format='%(asctime)s %(levelname)s %(name)s: %(message)s')
-                        #filename='/opt/Work_review_notifications/bot.log')
+    logging.basicConfig(format='%(asctime)s %(levelname)s %(name)s: %(message)s',
+                        filename='/opt/Work_review_notifications/bot.log')
     logger.setLevel(logging.DEBUG)
     env = Env()
     env.read_env()
@@ -40,7 +40,6 @@ def main():
     logger.info('Бот запущен')
     while True:
         try:
-            x = 10 / 0
             response = requests.get(url, headers=headers, params=params)
             response.raise_for_status()
             review_information = response.json()
