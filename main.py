@@ -23,7 +23,7 @@ class TelegramLogsHandler(logging.Handler):
 
 def main():
     logging.basicConfig(format='%(asctime)s %(levelname)s %(name)s: %(message)s',
-                        filename='/opt/Work_review_notifications/bot.log')
+                        filename='bot.log')
     logger.setLevel(logging.DEBUG)
     env = Env()
     env.read_env()

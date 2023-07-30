@@ -21,6 +21,21 @@ python main.py 123456789
 ```
  Чтобы бот начал вам присылать уведомления о проверке домашних заданий, необходимо отправить ему любое сообщение.
 
- ## Цели проекта
+## Запуск через Docker
+
+ - Установите Docker по инструкции в зависимости от вашей операционной системы: https://docs.docker.com/engine/install/
+
+
+ - создать образ:
+
+ ```commandline
+ docker build -t work_review_notifications .
+ ```
+ - Запуск контейнера с учетом переменного окружения:
+ ```commandline
+ docker run -p 3001:8001 --env-file .env --name devman_bot_1 work_review_notifications 
+ ```
+
+## Цели проекта
 
 Код написан в образовательных целях на онлайн-курсе для веб-разработчиков [Devman](https://dvmn.org).
